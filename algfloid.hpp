@@ -13,7 +13,7 @@ T* Floid(T** ary, int n, T nullel, T infel)
     for (int i = 1; i < n; i++) {
         tmp[i] = infel;
     }
-    T l;  
+    T l;
     for (int i = 0; i < n; i++) {
         for (int j = 0; j < n; j++) {
             if(ary[i][j]!=infel && tmp[i]!=infel){
@@ -24,7 +24,7 @@ T* Floid(T** ary, int n, T nullel, T infel)
                 l=infel;
             }
             if((tmp[j] == infel && l != infel)||(tmp[j] != infel && l != infel && l<tmp[j]))
-                tmp[j] = l;   
+                tmp[j] = l;
         }
     }
     return tmp;
@@ -34,9 +34,9 @@ template<typename T>
 void printMatrix(T** ary, int n){
     for (int i = 0; i < n; i++) {
         for (int j = 0; j < n; j++) {
-        cout << ary[i][j] << " ";
+            cout << ary[i][j] << " ";
         }
-    cout << "\n";
+        cout << "\n";
     }
 }
 #endif

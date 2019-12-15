@@ -1,7 +1,9 @@
 
 #ifndef tests_H
 #define tests_H
+
 #include "algfloid.hpp"
+
 void floidtests() {
     int N = 5;
     int ** Matrix;
@@ -9,10 +11,8 @@ void floidtests() {
     Matrix = (int**)malloc(N * sizeof(int*));
     for (i = 0; i < N; i++)
         Matrix[i] = (int*)malloc(N * sizeof(int));
-    
     for (i = 0; i < N; i++)
         for (j = 0; j < N; j++){
-            //cin >> Matrix[i][j];
             Matrix[i][j]=-1;
             if(i==j)
             Matrix[i][j]=0;
