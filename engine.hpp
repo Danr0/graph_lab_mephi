@@ -22,18 +22,14 @@ enum StorageType {
 
 
 enum FloidVarTypes {
-    TypeIntSym,
-    TypeFloatSym,
-    TypeDoubleSym,
-    TypeIntUnSym,
-    TypeFloatUnSym,
-    TypeDoubleUnSym
+    IntSymmetric,
+    FloatSymmetric,
+    DoubleSymmetric,
+    IntUnsymmetric,
+    FloatUnsymmetric,
+    DoubleUnsymmetric
 };
 
-enum MatrixType {
-    SymmetricMatrix,
-    UnSymmetricMatrix
-};
 
 class Application {
     public:
@@ -91,24 +87,36 @@ class Application {
 
 
                 void AlgFloid() {
-                    print("Select search type: TypeIntSym, Sym or TypeFloatSym");
+                    print("Choose graph type: IntSymmetric, DoubleSymmetric or FloatSymmetric");
                     string third = getCommand();
                     Command task = Command(third);
-                    map<string,FloidVarTypes> options {{"TypeIntSym",TypeIntSym},{"TypeFloatSym",TypeFloatSym},{"PropTypeDoubleSym",TypeDoubleSym,
-                    "TypeIntUnSym",TypeIntUnSym},{"TypeFloatUnSym",TypeFloatUnSym},{"PropTypeFloatUnSym",TypeDoubleUnSym,
+                    map<string,FloidVarTypes> options {{"IntSymmetric",IntSymmetric},{"FloatSymmetric",FloatSymmetric},{"DoubleSymmetric",DoubleSymmetric,
+                    "IntUnsymmetric",IntUnsymmetric},{"FloatUnsymmetric",FloatUnsymmetric},{"DoubleUnsymmetric",DoubleUnsymmetric,
                     }};
 
                     switch (evaluate<FloidVarTypes>(task.base(),options)) {
-                        case TypeIntSym:
-                            TypeIntSymM();
+                        case IntSymmetric:
+                            IntSymmetricM();
                             break;
 
-                        case TypeFloatSym:
-                            TypeFloatSymM();
+                        case FloatSymmetric:
+                            FloatSymmetricM();
                             break;
 
-                        case TypeDoubleSym:
-                            TypeDoubleSymM();
+                        case DoubleSymmetric:
+                            DoubleSymmetricM();
+                            break;
+
+                        case IntUnsymmetric:
+                            IntUnsymmetricM();
+                            break;
+
+                        case FloatUnsymmetric:
+                            FloatUnsymmetricM();
+                            break;
+
+                        case DoubleUnsymmetric:
+                            DoubleUnsymmetricM();
                             break;
 
                         default:
@@ -117,7 +125,7 @@ class Application {
                 }
 
 
-                        void TypeFloatSymM() {
+                        void FloatSymmetricM() {
                             print("Choose type of matrix");
                             string third = getCommand();
                             int amount = stoi(third);
@@ -135,7 +143,7 @@ class Application {
                             }
                             clock_t start, end;
                             start = clock();
-                            AlgFloid.TypeFloatSymM(*searchfor, 0, AlgFloid.getLength()-1);
+                            AlgFloid.FloatSymmetricM(*searchfor, 0, AlgFloid.getLength()-1);
                             end = clock();
                             printf("The search was executed in %.7f sec for %d elements\n", ((double) end - start) / ((double) CLOCKS_PER_SEC), amount);
                             */
@@ -143,14 +151,26 @@ class Application {
 
 
 
-                        void TypeDoubleSym,
-                        M() {
+                        void DoubleSymmetricM() {
             
                         }
 
-                        void TypeIntSymM() {
+                        void IntSymmetricM() {
             
                         }
+
+    void FloatUnsymmetricM() {
+
+    }
+
+    void DoubleUnsymmetricM() {
+
+    }
+
+    void IntUnsymmetricM() {
+
+    }
+
         string getCommand(){
             string commandToGet;
             getline(cin,commandToGet);
